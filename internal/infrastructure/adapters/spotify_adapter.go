@@ -20,9 +20,6 @@ func NewSpotifyAdapter(apiUrl string, apiAccessToken string) *SpotifyAdapter {
 }
 
 func (a *SpotifyAdapter) GetArtistsById(ids []string) ([]map[string]interface{}, error) {
-
-	// https://api.spotify.com/v1
-
 	url := fmt.Sprintf("%s/artists?ids=%s", a.apiUrl, strings.Join(ids, ","))
 
 	req, err := http.NewRequest("GET", url, nil)
@@ -48,7 +45,6 @@ func (a *SpotifyAdapter) GetArtistsById(ids []string) ([]map[string]interface{},
 		return nil, fmt.Errorf("error decoding Spotify JSON response: %v", err)
 	}
 
-	// Extrai as informações relevantes de cada artista
 	var artistsInfo []map[string]interface{}
 	artists := result["artists"].([]interface{})
 

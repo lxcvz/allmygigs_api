@@ -5,12 +5,10 @@ import (
 	"allmygigs/internal/infrastructure/adapters"
 )
 
-// LastFMRepository estrutura responsável pela interação com a API do LastFM
 type LastFMRepository struct {
 	adapter *adapters.LastfmAdapter
 }
 
-// NewLastFMRepository cria uma nova instância do repositório
 func NewLastFMRepository(adapter *adapters.LastfmAdapter) port.LastfmRepository {
 	return &LastFMRepository{
 		adapter: adapter,

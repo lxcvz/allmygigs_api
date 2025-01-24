@@ -50,7 +50,6 @@ func LoadConfg() (*Config, error) {
 		{"AWS_DYNAMO_SECRET", config.AwsDynamoSecret},
 	}
 
-	// Verifica se alguma variável obrigatória está vazia
 	for _, envVar := range requiredEnvVars {
 		if envVar.value == "" {
 			return nil, fmt.Errorf("Incomplete configuration variables: check your .env file, missing: %s", envVar.name)
